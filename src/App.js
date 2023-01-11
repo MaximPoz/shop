@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Items from './components/Items';
 
-function App() {
+
+ const inishialState = [
+    {
+      id: 1,
+      title: 'Стул серый',
+      img: 'chair-grey.jpeg',
+      category: 'chairs',
+      price: '49.99'
+    },
+    {
+      id: 2,
+      title: 'Стул зелёный',
+      img: 'chair-green.jpeg',
+      category: 'chairs',
+      price: '48.99'
+    },
+    {
+      id: 3,
+      title: 'Стул чёрный',
+      img: 'chair-black.jpeg',
+      category: 'chairs',
+      price: '100.00'
+    },
+  ];
+
+
+const App = () => {
+  const[items,  setItems] = useState (inishialState)
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header/>
+      <Items items={items}/>
+      <Footer/>
     </div>
   );
 }
